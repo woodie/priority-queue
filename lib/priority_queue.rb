@@ -1,7 +1,9 @@
 module Containers; end
 require  'containers/heap'
 
-class PriorityQueue
+class PriorityQueue < Containers::MinHeap; end
+
+__END__
 
   def initialize
     @heap = Containers::MinHeap.new
