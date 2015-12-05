@@ -1,16 +1,30 @@
 require 'priority_queue'
 
 RSpec.describe PriorityQueue do
-  context "when we add jobs" do
-    it "inserts then in order" do
-      queue = PriorityQueue.new
-      queue.push(5, 'foo')
-      queue.push(9, 'bar')
-      queue.push(0, 'baz')
-      expect(queue.pop) == 'baz'
-      expect(queue.pop) == 'foo'
-      expect(queue.pop) == 'bar'
+  before(:all) do
+    @queue = PriorityQueue.new
+  end
+
+  context "when the queue is empty" do
+    it "size will be zero" do
+      expect(@queue.size).to be(0)
     end
-  end 
+    it "pop will return nil" do
+      expect(@queue.pop).to be(nil)
+    end
+  end
+
+  context "when items are added" do
+    it "items are returned in priority order" do
+      @queue.push(5, :foo)
+      @queue.push(9, :bar)
+      @queue.push(0, :baz)
+      @queue.push(3, :qux)
+      expect(@queue.pop).to be(:baz)
+      expect(@queue.pop).to be(:qux)
+      expect(@queue.pop).to be(:foo)
+      expect(@queue.pop).to be(:bar)
+    end
+  end
 
 end

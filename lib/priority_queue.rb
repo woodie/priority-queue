@@ -15,4 +15,8 @@ class PriorityQueue
     @heap.pop
   end
 
+  def size
+    @heap.size
+  end
+
 end
