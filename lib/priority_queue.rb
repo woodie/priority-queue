@@ -1,31 +1,6 @@
 module Containers; end
 require  'containers/heap'
+require  'containers/priority_array'
 
 class PriorityQueue < Containers::MinHeap; end
-
-__END__
-
-  def initialize
-    @heap = Containers::MinHeap.new
-  end
-
-  def push(priority, item)
-    @heap.push(priority, item)
-  end
-
-  def pop
-    @heap.pop
-  end
-
-  def size
-    @heap.size
-  end
-
-  def empty?
-    @heap.empty?
-  end
-
-  def clear
-    @heap.clear
-  end
-end
+class PriorityArrayQueue < Containers::PriorityArray; end
