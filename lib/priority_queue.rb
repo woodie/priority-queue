@@ -19,4 +19,11 @@ class PriorityQueue
     @heap.size
   end
 
+  def empty?
+    @heap.empty?
+  end
+
+  def clear
+    @heap.clear
+  end
 end

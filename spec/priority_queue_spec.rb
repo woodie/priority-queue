@@ -9,6 +9,9 @@ RSpec.describe PriorityQueue do
     it "size will be zero" do
       expect(@queue.size).to be(0)
     end
+    it "empty? will return true" do
+      expect(@queue.empty?).to be(true)
+    end
     it "pop will return nil" do
       expect(@queue.pop).to be(nil)
     end
@@ -24,6 +27,12 @@ RSpec.describe PriorityQueue do
       expect(@queue.pop).to be(:qux)
       expect(@queue.pop).to be(:foo)
       expect(@queue.pop).to be(:bar)
+    end
+    it "clear will empty the queue" do
+      @queue.push(5, :foo)
+      @queue.push(9, :bar)
+      @queue.clear
+      expect(@queue.empty?).to be(true)
     end
   end
 
